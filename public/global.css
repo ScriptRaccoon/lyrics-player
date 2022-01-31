@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+:root {
+    --primary-color: rgb(36, 95, 149);
+}
+
 input,
 textarea,
 button {

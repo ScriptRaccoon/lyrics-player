@@ -1,4 +1,5 @@
 <script>
+    import { fade } from "svelte/transition";
     export let lyrics = "";
     export let files;
     export let lines;
@@ -36,26 +37,53 @@
 </script>
 
 <form on:submit|preventDefault>
-    <p>Choose a song file</p>
-    <input type="file" accept="audio/*" bind:files />
-    <p>Add the lyrics</p>
-    <p>Each non-empty line must have the format [mm:ss]text</p>
-    <textarea bind:value={lyrics} {placeholder} />
+    <label for="fileInput">Choose a song from your PC</label>
+    <input id="fileInput" type="file" accept="audio/*" bind:files />
+    <label for="lyricsInput">Paste the lyrics</label>
+    <p class="hint">
+        Each non-empty line must have the format [mm:ss]text.
+    </p>
+    <textarea id="lyricsInput" bind:value={lyrics} {placeholder} />
 </form>
 {#if error}
-    <p class="error">
+    <p transition:fade={{ duration: 150 }} class="error">
         {error}
     </p>
 {/if}
 
 <style>
+    input,
+    label,
+    textarea {
+        display: block;
+    }
+    label {
+        font-weight: bold;
+        margin: 20px 0px 10px 0px;
+        font-size: 20px;
+    }
     textarea {
         width: 100%;
-        height: 300px;
+        height: 100px;
         resize: vertical;
+        padding: 5px;
+        font-size: 12px;
+        outline: none;
+        border-radius: 4px;
+    }
+    textarea:focus {
+        border: 1px solid var(--primary-color);
+        background-color: #efeff5;
+    }
+    .hint {
+        color: #444;
+        margin: 5px 0px;
     }
     .error {
         padding: 10px 0px;
         color: red;
+    }
+    input[type="file"] {
+        width: 100%;
     }
 </style>

@@ -7,7 +7,7 @@
         padding: 20px 10px;
         text-align: center;
         color: #fff;
-        background-color: rgb(36, 95, 149);
+        background-color: var(--primary-color);
     }
     h1 {
         font-weight: 300;
