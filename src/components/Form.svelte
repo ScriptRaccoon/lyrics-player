@@ -70,10 +70,14 @@
         font-size: 12px;
         outline: none;
         border-radius: 4px;
+        border: 1px solid #555;
+        opacity: 0.8;
+        transition: all 100ms linear;
     }
     textarea:focus {
         border: 1px solid var(--primary-color);
         background-color: #efeff5;
+        opacity: 1;
     }
     .hint {
         color: #444;
