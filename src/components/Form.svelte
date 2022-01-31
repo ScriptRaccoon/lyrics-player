@@ -1,5 +1,5 @@
 <script>
-    import { fade } from "svelte/transition";
+    import { slide, fade } from "svelte/transition";
     export let lyrics = "";
     export let files;
     export let lines;
@@ -34,22 +34,56 @@
             })
             .filter((line) => line != null);
     }
+
+    let formVisible = true;
 </script>
 
-<form on:submit|preventDefault>
-    <label for="fileInput">Choose a song from your PC</label>
-    <input id="fileInput" type="file" accept="audio/*" bind:files />
-    <label for="lyricsInput">Paste the lyrics</label>
-    <p class="hint">
-        Each non-empty line must have the format [mm:ss]text.
-    </p>
-    <textarea id="lyricsInput" bind:value={lyrics} {placeholder} />
-</form>
-{#if error}
-    <p transition:fade={{ duration: 150 }} class="error">
-        {error}
-    </p>
-{/if}
+<section>
+    <div class="controls">
+        <label for="formCheck">
+            <img
+                src={formVisible
+                    ? "./icons/hide.png"
+                    : "./icons/show.png"}
+                alt="toggle form"
+            />
+        </label>
+        <input
+            type="checkbox"
+            id="formCheck"
+            bind:checked={formVisible}
+        />
+    </div>
+
+    {#if formVisible}
+        <form transition:slide on:submit|preventDefault>
+            <label for="fileInput">Choose a song from your PC</label>
+            <input
+                id="fileInput"
+                type="file"
+                accept="audio/*"
+                bind:files
+            />
+            <p class="relative">
+                <label for="lyricsInput">Paste the lyrics</label>
+            </p>
+
+            <p class="hint">
+                Each non-empty line must have the format [mm:ss]text.
+            </p>
+            <textarea
+                id="lyricsInput"
+                bind:value={lyrics}
+                {placeholder}
+            />
+        </form>
+        {#if error}
+            <p transition:fade={{ duration: 150 }} class="error">
+                {error}
+            </p>
+        {/if}
+    {/if}
+</section>
 
 <style>
     input,
@@ -59,7 +93,6 @@
     }
     label {
         font-weight: bold;
-        margin: 20px 0px 10px 0px;
         font-size: 20px;
     }
     textarea {
@@ -89,5 +122,24 @@
     }
     input[type="file"] {
         width: 100%;
+        margin-bottom: 20px;
+    }
+    .controls {
+        display: flex;
+        justify-content: flex-end;
+        padding: 10px;
+    }
+
+    input[type="checkbox"] {
+        position: absolute;
+        visibility: hidden;
+    }
+    .controls img {
+        width: 20px;
+        cursor: pointer;
+        opacity: 0.7;
+    }
+    .controls img:hover {
+        opacity: 1;
     }
 </style>

@@ -14,4 +14,10 @@ button {
     font-family: inherit;
     font-size: inherit;
     background: unset;
+    border: none;
+    outline: none;
+}
+
+button {
+    cursor: pointer;
 }
