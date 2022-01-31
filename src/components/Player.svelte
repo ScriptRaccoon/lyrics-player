@@ -13,3 +13,13 @@
         />
     </section>
 {/if}
+
+<style>
+    section {
+        padding: 20px 0px;
+    }
+    audio {
+        width: 100%;
+        height: 30px;
+    }
+</style>
