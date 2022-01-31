@@ -6,20 +6,12 @@
     let lyrics = "";
     let files = null;
     let currentTime = 0;
-    $: lines = lyrics.split("\n").map((line) => {
-        const min = parseInt(line.substring(1, 3));
-        const sec = parseInt(line.substring(4, 6));
-        const text = line.substring(7);
-        return {
-            time: 60 * min + sec,
-            text,
-        };
-    });
+    let lines = [];
 </script>
 
 <main>
     <Header />
-    <Form bind:lyrics bind:files />
-    <Player {files} />
+    <Form bind:lyrics bind:lines bind:files />
+    <Player {files} bind:currentTime />
     <Lyrics {currentTime} {lines} />
 </main>
