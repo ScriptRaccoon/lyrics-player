@@ -9,9 +9,19 @@
     let lines = [];
 </script>
 
+<Header />
 <main>
-    <Header />
     <Form bind:lyrics bind:lines bind:files />
     <Player {files} bind:currentTime />
     <Lyrics {currentTime} {lines} />
 </main>
+
+<style>
+    :global(body) {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+    main {
+        max-width: 700px;
+        margin: 0 auto;
+    }
+</style>

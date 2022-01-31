@@ -3,3 +3,11 @@
     margin: 0;
     box-sizing: border-box;
 }
+
+input,
+textarea,
+button {
+    font-family: inherit;
+    font-size: inherit;
+    background: unset;
+}
