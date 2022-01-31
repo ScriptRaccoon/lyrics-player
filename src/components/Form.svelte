@@ -40,6 +40,9 @@
 
 <section>
     <div class="controls">
+        <span class="filename">
+            {files && files[0] && files[0].name ? files[0].name : ""}
+        </span>
         <label for="formCheck">
             <img
                 src={formVisible
@@ -94,6 +97,7 @@
     label {
         font-weight: bold;
         font-size: 20px;
+        margin-bottom: 5px;
     }
     textarea {
         width: 100%;
@@ -105,7 +109,8 @@
         border-radius: 4px;
         border: 1px solid #555;
         opacity: 0.8;
-        transition: all 100ms linear;
+        transition: background-color 100ms linear,
+            opacity 100ms linear;
     }
     textarea:focus {
         border: 1px solid var(--primary-color);
@@ -114,32 +119,36 @@
     }
     .hint {
         color: #444;
-        margin: 5px 0px;
+        margin-bottom: 5px;
     }
     .error {
-        padding: 10px 0px;
+        margin: 10px 0px;
         color: red;
     }
     input[type="file"] {
-        width: 100%;
+        width: 50%;
         margin-bottom: 20px;
     }
     .controls {
         display: flex;
-        justify-content: flex-end;
-        padding: 10px;
+        justify-content: space-between;
+        padding: 10px 0px;
     }
 
     input[type="checkbox"] {
         position: absolute;
         visibility: hidden;
     }
-    .controls img {
+    .controls label img {
+        margin-right: 10px;
         width: 20px;
         cursor: pointer;
         opacity: 0.7;
     }
-    .controls img:hover {
+    .controls label img:hover {
         opacity: 1;
+    }
+    .filename {
+        font-size: 20px;
     }
 </style>
