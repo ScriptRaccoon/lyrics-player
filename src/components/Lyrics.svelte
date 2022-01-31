@@ -2,7 +2,7 @@
     export let currentTime = 0;
     export let lines = [];
     let lineElements = [];
-    const threshold = 0.3;
+    const threshold = 0.5;
     let currentIndex = 0;
     // TODO: update currentIndex less often
     $: {
@@ -34,12 +34,19 @@
 
 <style>
     section {
-        height: 200px;
+        flex-grow: 1;
         overflow-x: hidden;
         overflow-y: scroll;
         scroll-behavior: smooth;
     }
+    .line {
+        color: #aaa;
+        transition: color 150ms linear;
+        text-align: center;
+        margin: 15px 0px;
+        font-size: 25px;
+    }
     .line.selected {
-        font-weight: bold;
+        color: #000;
     }
 </style>

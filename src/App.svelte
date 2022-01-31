@@ -19,10 +19,14 @@
 <style>
     :global(body) {
         font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        min-height: 100vh;
     }
     main {
         max-width: 700px;
         margin: 0 auto;
         padding: 0px 10px;
+        display: flex;
+        flex-direction: column;
+        height: calc(100vh - 100px);
     }
 </style>

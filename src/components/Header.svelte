@@ -4,8 +4,10 @@
 
 <style>
     header {
-        padding: 20px 10px;
-        text-align: center;
+        height: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         color: #fff;
         background-color: var(--primary-color);
     }
