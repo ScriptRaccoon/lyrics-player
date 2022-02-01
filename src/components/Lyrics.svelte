@@ -30,6 +30,7 @@
             {line.text}
         </p>
     {/each}
+    <div class="overlay" />
 </section>
 
 <style>
@@ -39,6 +40,19 @@
         overflow-y: scroll;
         scroll-behavior: smooth;
         padding: 0px 10px;
+        position: relative;
+    }
+    .overlay {
+        position: sticky;
+        inset: 0;
+        height: 100%;
+        z-index: 100;
+        background: linear-gradient(
+            white 10%,
+            transparent 20%,
+            80%,
+            white 100%
+        );
     }
     .line {
         color: #aaa;
@@ -50,5 +64,11 @@
     }
     .line.selected {
         color: #000;
+    }
+    .line:first-of-type {
+        margin-top: 100px;
+    }
+    .line:last-of-type {
+        margin-bottom: 100px;
     }
 </style>
