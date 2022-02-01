@@ -21,25 +21,31 @@
 </script>
 
 <section>
-    {#each lines as line, index}
-        <p
-            class="line"
-            class:selected={currentIndex == index}
-            bind:this={lineElements[index]}
-        >
-            {line.text}
-        </p>
-    {/each}
+    <div class="lines">
+        {#each lines as line, index}
+            <p
+                class="line"
+                class:selected={currentIndex == index}
+                bind:this={lineElements[index]}
+            >
+                {line.text}
+            </p>
+        {/each}
+    </div>
+
     <div class="overlay" />
 </section>
 
 <style>
+    .lines {
+        position: absolute;
+        inset: 0;
+    }
     section {
         flex-grow: 1;
         overflow-x: hidden;
         overflow-y: scroll;
         scroll-behavior: smooth;
-        padding: 0px 10px;
         position: relative;
     }
     .overlay {
@@ -49,8 +55,8 @@
         z-index: 100;
         background: linear-gradient(
             white 0%,
-            transparent 10%,
-            transparent 90%,
+            transparent 15%,
+            transparent 85%,
             white 100%
         );
     }
@@ -60,15 +66,15 @@
         text-align: center;
         font-size: min(50px, 6vw);
         line-height: 1.5;
-        margin: 20px 0px;
+        margin: 20px 10px;
     }
     .line.selected {
         color: #000;
     }
     .line:first-of-type {
-        margin-top: 100px;
+        margin-top: 20vh;
     }
     .line:last-of-type {
-        margin-bottom: 100px;
+        margin-bottom: 20vh;
     }
 </style>
