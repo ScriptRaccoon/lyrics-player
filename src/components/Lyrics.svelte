@@ -38,6 +38,7 @@
         overflow-x: hidden;
         overflow-y: scroll;
         scroll-behavior: smooth;
+        padding: 0px 10px;
     }
     .line {
         color: #aaa;

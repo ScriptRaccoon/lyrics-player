@@ -3,6 +3,7 @@
     export let lyrics = "";
     export let files;
     export let lines;
+    export let formVisible = true;
     let error = "";
     const placeholder =
         "[00:15]There must be some kind of way outta here\n" +
@@ -34,32 +35,11 @@
             })
             .filter((line) => line != null);
     }
-
-    let formVisible = true;
 </script>
 
-<section>
-    <div class="controls">
-        <span class="filename">
-            {files && files[0] && files[0].name ? files[0].name : ""}
-        </span>
-        <label for="formCheck">
-            <img
-                src={formVisible
-                    ? "./icons/hide.png"
-                    : "./icons/show.png"}
-                alt="toggle form"
-            />
-        </label>
-        <input
-            type="checkbox"
-            id="formCheck"
-            bind:checked={formVisible}
-        />
-    </div>
-
-    {#if formVisible}
-        <form transition:slide on:submit|preventDefault>
+{#if formVisible}
+    <section transition:slide class="container">
+        <form class="container" on:submit|preventDefault>
             <label for="fileInput">Choose a song from your PC</label>
             <input
                 id="fileInput"
@@ -85,8 +65,8 @@
                 {error}
             </p>
         {/if}
-    {/if}
-</section>
+    </section>
+{/if}
 
 <style>
     input,
@@ -126,29 +106,7 @@
         color: red;
     }
     input[type="file"] {
-        width: 50%;
+        width: 100%;
         margin-bottom: 20px;
-    }
-    .controls {
-        display: flex;
-        justify-content: space-between;
-        padding: 10px 0px;
-    }
-
-    input[type="checkbox"] {
-        position: absolute;
-        visibility: hidden;
-    }
-    .controls label img {
-        margin-right: 10px;
-        width: 20px;
-        cursor: pointer;
-        opacity: 0.7;
-    }
-    .controls label img:hover {
-        opacity: 1;
-    }
-    .filename {
-        font-size: 20px;
     }
 </style>

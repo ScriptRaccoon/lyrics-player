@@ -5,7 +5,7 @@
 </script>
 
 {#if file}
-    <section>
+    <section class="container">
         <audio
             src={URL.createObjectURL(file)}
             bind:currentTime

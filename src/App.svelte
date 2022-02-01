@@ -3,15 +3,18 @@
     import Header from "./components/Header.svelte";
     import Form from "./components/Form.svelte";
     import Player from "./components/Player.svelte";
+    import Menu from "./components/Menu.svelte";
     let lyrics = "";
     let files = null;
     let currentTime = 0;
     let lines = [];
+    let formVisible = true;
 </script>
 
 <Header />
 <main>
-    <Form bind:lyrics bind:lines bind:files />
+    <Menu {files} bind:formVisible />
+    <Form bind:lyrics bind:lines bind:files {formVisible} />
     <Player {files} bind:currentTime />
     <Lyrics {currentTime} {lines} />
 </main>
@@ -22,9 +25,6 @@
         min-height: 100vh;
     }
     main {
-        max-width: 700px;
-        margin: 0 auto;
-        padding: 0px 10px;
         display: flex;
         flex-direction: column;
         height: calc(100vh - 100px);

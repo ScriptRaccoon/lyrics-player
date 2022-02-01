@@ -21,3 +21,8 @@ button {
 button {
     cursor: pointer;
 }
+
+.container {
+    margin: 0 auto;
+    width: min(700px, 90vw);
+}
