@@ -2,13 +2,13 @@
 
 https://lyrics-player.netlify.app
 
-This little app lets you open a song for your computer, paste lyrics with timestamps and play the song with the current lyric being highlighted.
+This little app lets you open a song from your computer, paste lyrics with timestamps and play the song with the current lyric being highlighted.
 
 This project is made with Svelte. Apart from the root App component, there are components
 
 -   `Header.svelte` for the Header
 -   `Form.svelte` for the user input (song file, lyrics)
--   `Menu.svelte` for the menu which shows the song name and enables to toggle the form
+-   `Menu.svelte` for the menu which shows the song name and a checkbox to toggle the form
 -   `Player.svelte` for the song player (browser specific appearance)
 -   `Lyrics.svelte` for the nice lyrics display
 
