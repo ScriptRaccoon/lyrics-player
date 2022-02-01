@@ -48,9 +48,9 @@
         height: 100%;
         z-index: 100;
         background: linear-gradient(
-            white 10%,
-            transparent 20%,
-            80%,
+            white 0%,
+            transparent 10%,
+            transparent 90%,
             white 100%
         );
     }
