@@ -44,8 +44,9 @@
         color: #aaa;
         transition: color 150ms linear;
         text-align: center;
-        margin: 15px 0px;
-        font-size: 25px;
+        font-size: min(50px, 6vw);
+        line-height: 1.5;
+        margin: 20px 0px;
     }
     .line.selected {
         color: #000;
